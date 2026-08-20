@@ -118,18 +118,15 @@ body {
 }
 @media (max-width: 600px) {
     h1 {
-        font-size: 38px;
-        letter-spacing: 7px;
+        font-size: clamp(28px, 12vw, 38px);
+        letter-spacing: 5px;
+        white-space: nowrap;
     }
 
     p {
         font-size: 14px;
         letter-spacing: 1px;
         padding: 0 20px;
-    }
-}
-@media (max-width: 600px) {
-    body {
-        background-color: red;
+        line-height: 1.5;
     }
 }
