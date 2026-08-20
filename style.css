@@ -116,3 +116,15 @@ body {
 .catalog-button:hover {
     background-color: #55504b;
 }
+@media (max-width: 600px) {
+    h1 {
+        font-size: 38px;
+        letter-spacing: 7px;
+    }
+
+    p {
+        font-size: 14px;
+        letter-spacing: 1px;
+        padding: 0 20px;
+    }
+}
