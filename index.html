@@ -248,6 +248,141 @@
 
 </section>
 
+<div class="product-modal" id="productModal">
+
+    <div class="product-modal-content">
+
+        <button class="modal-close" id="modalClose">×</button>
+
+        <img id="modalImage" src="" alt="">
+
+        <p class="product-brand" id="modalBrand"></p>
+
+        <h2 id="modalTitle"></h2>
+
+        <p class="modal-price" id="modalPrice"></p>
+
+        <a id="modalOrder"
+           class="modal-order"
+           href="#"
+           target="_blank">
+            Заказать
+        </a>
+
+    </div>
+
+</div>
+
+<script>
+    const products = [
+        {
+            brand: "EVELINE",
+            title: "Гиалуроновая мицеллярная вода Facemed+ 3в1, 400 мл",
+            price: "1 800 ₸",
+            image: "images/giaulirone.jpeg"
+        },
+        {
+            brand: "EVELINE",
+            title: "Очищающая мицеллярная вода Facemed+ 3в1, 400 мл",
+            price: "1 800 ₸",
+            image: "images/cleaner.jpeg"
+        },
+        {
+            brand: "ECOLATIER",
+            title: "Мицеллярная вода Чай, Матча & Бамбук",
+            price: "1 500 ₸",
+            image: "images/urban.jpeg"
+        },
+        {
+            brand: "NORA FLOWERS",
+            title: "Книжка-набор декоративной косметики 4в1",
+            price: "2 500 ₸",
+            image: "images/nora-flowers.jpeg"
+        },
+        {
+            brand: "URATM",
+            title: "Книжка-набор декоративной косметики",
+            price: "2 500 ₸",
+            image: "images/uratm.jpeg"
+        },
+        {
+            brand: "DR. ALTHEA",
+            title: "Aqua Marine Watery Cream — увлажняющий крем для лица",
+            price: "5 200 ₸",
+            image: "images/dr.althea.jpeg"
+        },
+        {
+            brand: "MIPPEUM",
+            title: "Collagen Mix Package, 3200 мг",
+            price: "15 000 ₸",
+            image: "images/collagen.jpeg"
+        },
+        {
+            brand: "LONGRICH",
+            title: "Антиперспирант с коллагеном Dew",
+            price: "3 000 ₸",
+            image: "images/antiperspirant.jpeg"
+        },
+        {
+            brand: "LESTIAL",
+            title: "Клей для ресниц",
+            price: "150 ₸",
+            image: "images/clue.jpeg"
+        }
+    ];
+
+    const productCards = document.querySelectorAll(".product-card");
+
+    const productModal = document.getElementById("productModal");
+    const modalClose = document.getElementById("modalClose");
+
+    const modalImage = document.getElementById("modalImage");
+    const modalBrand = document.getElementById("modalBrand");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalPrice = document.getElementById("modalPrice");
+    const modalOrder = document.getElementById("modalOrder");
+
+
+    productCards.forEach((card, index) => {
+
+        card.addEventListener("click", () => {
+
+            const product = products[index];
+
+            modalImage.src = product.image;
+            modalImage.alt = product.title;
+
+            modalBrand.textContent = product.brand;
+            modalTitle.textContent = product.title;
+            modalPrice.textContent = product.price;
+
+            const message =
+                `Здравствуйте! Хочу заказать: ${product.title} — ${product.price}`;
+
+            modalOrder.href =
+                `https://wa.me/77756990198?text=${encodeURIComponent(message)}`;
+
+            productModal.style.display = "flex";
+
+        });
+
+    });
+
+
+    modalClose.addEventListener("click", () => {
+        productModal.style.display = "none";
+    });
+
+
+    productModal.addEventListener("click", (event) => {
+
+        if (event.target === productModal) {
+            productModal.style.display = "none";
+        }
+
+    });
+</script>
+
 </body>
 
 </html>
